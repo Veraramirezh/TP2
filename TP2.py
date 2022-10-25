@@ -4,7 +4,7 @@
 
 from random import randint
 
-max = 100
+max = 1000
 reponse = randint(1,max)
 
 print("Jai choisi un nombre mystere entre 1 et ",max, " à toi de le deviner")
