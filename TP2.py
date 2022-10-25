@@ -1,37 +1,35 @@
-#creer par henrique vera
-#creer le 12 octobre
-#wanna play a game...
+# creer par henrique vera
+# creer le 12 octobre
+# wanna play a game...
 
-import random
-def numero():
-    #on demande a la victime un nombre a chosir
-    #on retourne le nombre aleatoire chosis
-    num1 = int(input("vous devez choisir deux numeros, choissisez le premier"))
-    num2 = int(input("vous devez choisir deux numeros, choissisez le deuxieme"))
-    return random.randint(num1, num2)
+from random import randint
 
+max = 100
+reponse = randint(1,max)
 
+print("Jai choisi un nombre mystere entre 1 et ",max, " à toi de le deviner")
 playing = True
+# alors ici, si winning est false qui veut dire quona a pas eux le bon chiffre, le number trty est egale a 0 comme indiquer,
+# mais lorsque lutilisateur essai de trouver le chiffre, alors on doit ajouter plus un a chaque essai(+=1)
 while playing:
-    number_range = numero()
+
     winning = False
-    number_try = 0
+    Nb_essais = 0
     while not winning:
-        number_try += 1
-#s'il na pas le bon chiffre il demande ces questions ci dissous
-        entre_nmbr = int(input("choissisez un nombre entre ceux choissi tantot"))
-
-        if entre_nmbr > number_range:
-            print("votre nombre est trop grand, choissiser un plus petit")
-        elif entre_nmbr < number_range:
-            print("votre nombre est trop petit, choissisez un plus grand")
+        Nb_essais += 1
+        #s'il na pas le bon chiffre il demande ces questions ci dissous
+        chifr = int(input("choissisez un nombre entre ceux choissi tantot"))
+        if chifr > reponse:
+            print("votre nombre est trop grand choissiser un plus petit")
+        elif chifr < reponse:
+            print("votre nombre est trop petit choissisez un plus grand")
         else:
-            print("vous avez fini en", number_try)
+            print("vous avez fini en", Nb_essais)
             winning = True
-
-# on propose lidee de recommencer le jeu
-    recommencer = input("est ce que vous voulez recommencer, oui ou non")
-    if recommencer == "non":
+ # on propose lidee de recommencer le jeu
+    restart = input("est ce que vous voulez recommencer, oui ou non")
+    if restart == "non":
+        print("d'accord au revoir")
         playing = False
 
 #fin
